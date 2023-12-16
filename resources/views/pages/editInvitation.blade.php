@@ -204,9 +204,9 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>person name</label>
 
-                                    <input id="name" type="text" class="p-3 @error('name') is-invalid @enderror"
-                                        name="name" value="{{$Invitation->name}}" required autocomplete="name"
-                                        autofocus>
+                                    <input id="name" type="text"
+                                        class="p-3 @error('name') is-invalid @enderror" name="name"
+                                        value="{{ $Invitation->name }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -220,7 +220,7 @@
 
                                     <input id="email" type="email"
                                         class="p-3 @error('email') is-invalid @enderror" name="email"
-                                        value="{{$Invitation->email}}" required autocomplete="email" autofocus>
+                                        value="{{ $Invitation->email }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -240,7 +240,7 @@
 
                                     <input id="phone" type="phone"
                                         class="p-3 @error('phone') is-invalid @enderror" name="phone"
-                                        value="{{$Invitation->phone}}" required autocomplete="phone" autofocus>
+                                        value="{{ $Invitation->phone }}" required autocomplete="phone" autofocus>
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -254,7 +254,8 @@
 
                                     <input id="position" type="text"
                                         class="p-3 @error('position') is-invalid @enderror" name="position"
-                                        value="{{$Invitation->position}}" required autocomplete="position" autofocus>
+                                        value="{{ $Invitation->position }}" required autocomplete="position"
+                                        autofocus>
 
                                     @error('position')
                                         <span class="invalid-feedback" role="alert">
@@ -273,7 +274,8 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>sarname</label>
                                     <select name="sarname_id" id="" class="p-3" required>
-                                        <option value="{{$Invitation->Sarname->title}}" >{{$Invitation->Sarname->title}}</option>
+                                        <option value="{{ $Invitation->Sarname->id }}">
+                                            {{ $Invitation->Sarname->title }}</option>
                                         @foreach ($sarnames as $Invitation)
                                             <option value="{{ $Invitation->id }}">{{ $Invitation->title }}</option>
                                         @endforeach
@@ -291,7 +293,8 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>nickname</label>
                                     <select name="nickname_id" id="" class="p-3" required>
-                                        <option value="{{$Invitation->Nickname}}">{{$Invitation->Nickname}}</option>
+                                        <option value="{{ $Nickname->id }}">{{ $Nickname->title }}
+                                        </option>
                                         @foreach ($nicknames as $Invitation)
                                             <option value="{{ $Invitation->id }}">{{ $Invitation->title }}</option>
                                         @endforeach
@@ -312,7 +315,8 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>category</label>
                                     <select name="category_id" id="" class="p-3" required>
-                                        <option value="{{$Invitation->Category}}"  >{{$Invitation->Category}}</option>
+                                        <option value="{{ $Category->id }}">{{ $Category->title }}
+                                        </option>
                                         @foreach ($categories as $Invitation)
                                             <option value="{{ $Invitation->id }}">{{ $Invitation->title }}</option>
                                         @endforeach
@@ -330,12 +334,10 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>event</label>
                                     <select name="event_id" id="" class="p-3" required>
-                                        <option value="{{$Invitation->Event}}">{{$Invitation->Event}}</option>
+                                        <option value="{{ $Event->id }}">{{ $Event->title }}</option>
                                         @foreach ($events as $Invitation)
                                             <option value="{{ $Invitation->id }}">{{ $Invitation->title }}</option>
                                         @endforeach
-
-
                                     </select>
                                     @error('event_id')
                                         <span class="invalid-feedback" role="alert">
@@ -351,7 +353,7 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>type</label>
                                     <select name="type" id="" class="p-3" required>
-                                        <option value="{{$Invitation->type}}">{{$Invitation->type}}</option>
+                                        <option value="{{$type}}">{{$type}}</option>
 
                                         <option value="داخلي">داخلي</option>
                                         <option value="خارجي">خارجي</option>
@@ -370,7 +372,7 @@
                                 <div class="input d-flex flex-column gap-2">
                                     <label>staus</label>
                                     <select name="status" id="" class="p-3" required>
-                                        <option value="{{$Invitation->status}}">{{$Invitation->status}}</option>
+                                        <option value="{{ $status }}">{{ $status }}</option>
 
                                         <option value="مؤكد">مؤكد</option>
                                         <option value="تم التسليم">تم التسليم</option>
@@ -390,7 +392,7 @@
 
                                     <input id="company" type="text"
                                         class="p-3 @error('company') is-invalid @enderror" name="company"
-                                        value="{{$Invitation->company}}" required autocomplete="company" autofocus>
+                                        value="{{ $company }}" required autocomplete="company" autofocus>
 
                                     @error('company')
                                         <span class="invalid-feedback" role="alert">

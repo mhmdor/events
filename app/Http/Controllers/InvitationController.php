@@ -79,13 +79,18 @@ class InvitationController extends Controller
     public function editInvitation($id)
     {
         $Invitation = Invitation::where('id', $id)->first();
-
+        $Nickname =  $Invitation->Nickname;
+        $Category =  $Invitation->Category;
+        $type =  $Invitation->type;
+        $status =  $Invitation->status;
+        $company =  $Invitation->company;
+        $Event =  $Invitation->Event;
         $sarnames = Sarname::all();
         $nicknames = Nickname::all();
         $categories = Category::all();
         $events = Event::all();
 
-        return view('pages.editInvitation', compact('Invitation', 'sarnames', 'nicknames', 'categories', 'events'));
+        return view('pages.editInvitation', compact('Invitation', 'sarnames', 'nicknames', 'categories', 'events','Nickname','Event','Category','type','status','company'));
 
 
     }
@@ -100,8 +105,8 @@ class InvitationController extends Controller
             'nickname_id' => ['required'],
             'event_id' => ['required'],
             'category_id' => ['required'],
-            'email' => ['required', 'string', 'max:255', 'unique:invitations'],
-            'phone' => ['required', 'string', 'max:255', 'unique:invitations'],
+            'email' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
             'position' => ['required', 'string', 'max:255'],
             'company' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string', 'max:255'],
@@ -113,8 +118,8 @@ class InvitationController extends Controller
             'sarname_id' => $request->sarname_id,
             'name' => $request->name,
             'nickname_id' => $request->nickname_id,
-            'event_id' => $request->description,
-            'category_id' => $request->place_id,
+            'event_id' => $request->event_id,
+            'category_id' => $request->category_id,
             'email' => $request->email,
             'phone' => $request->phone,
             'status' => $request->status,
