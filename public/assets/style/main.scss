@@ -1,0 +1,17 @@
+@use "vars.scss" as *;
+@use "global.scss";
+
+// Pages 
+@use "pages/login.scss";
+@use "pages/overview.scss";
+@use "pages/clients.scss";
+@use "pages/clientDetails.scss";
+@use "pages/addClient.scss";
+@use "pages/companies.scss";
+@use "pages/companyDetails.scss";
+@use "pages/addCompany.scss";
+@use "pages/messages.scss";
+@use "pages/settings.scss";
+@use "pages/employeeDetails.scss";
+@use "pages/clientGifts.scss";
+
